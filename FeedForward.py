@@ -8,9 +8,9 @@ class FeedForward(torch.nn.Module):
         super(FeedForward, self).__init__()
         self.layers = torch.nn.Sequential(
             torch.nn.Linear(vocab_size, 512),
+            torch.nn.ReLU(),
             torch.nn.Linear(512, vocab_size),
-            torch.nn.BatchNorm1d(vocab_size),
-            torch.nn.ReLU()
+            torch.nn.Dropout(.2)
         )
 
         self.layers.to(device)
