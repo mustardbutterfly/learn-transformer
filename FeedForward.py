@@ -9,7 +9,7 @@ class FeedForward(torch.nn.Module):
         self.layers = torch.nn.Sequential(
             torch.nn.Linear(vocab_size, 512),
             torch.nn.ReLU(),
-            torch.nn.Linear(512, vocab_size),
+            torch.nn.Linear(512, vocab_size),  # proj
             torch.nn.Dropout(.2)
         )
 
